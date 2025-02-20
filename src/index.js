@@ -33,8 +33,25 @@ function createNewLine (contact){
   `;
 
   tableBody.appendChild(exampleRow);
-}
 
+const deleteBtn = exampleRow.querySelector('.btn-delete');
+deleteBtn.addEventListener('click', () => {
+  exampleRow.remove(); 
+});
+
+const likeBtn = document.querySelector("#contacts > tr:nth-child(1) > td:nth-child(5) > button")
+likeBtn.addEventListener('click', () => {
+  likeBtn.classList.toggle('liked');
+
+  const icon = likeBtn.querySelector('img');
+  if (likeBtn.classList.contains('liked')) {
+    icon.src = './images/icon-liked.png';  // Mudar a imagem ou ícone
+  } else {
+    icon.src = './images/icon.png';  // Voltar à imagem original
+  }
+});
+
+}
 
 
 
@@ -50,9 +67,17 @@ threeContacts.forEach(contact => {
   
   // ITERATION 2 - Delete Buttons
   
-  // Your code goes here ...
-  
-  
+
+
+ /// const deleteBtns = document.querySelectorAll('.btn-delete');  // Usar querySelectorAll
+
+ // deleteBtns.forEach((btn) => {
+ //   btn.addEventListener('click', () => {
+ //     const row = btn.closest('tr');  // Encontre a linha (tr) onde o botão está
+  //    row.remove();  // Remove a linha da tabela
+ //   });
+ // });
+
 
   // ITERATION 3 - Like Buttons
 
